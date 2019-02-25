@@ -1,0 +1,18 @@
+<div style="float:left;">
+<h2>PELÍCULES DISPONIBLES</h2>
+<ul class="movies">
+  <li  *ngFor="let movie of movies">
+      <a routerLink="/detail/{{movie.id}}">
+    <span class="badge">{{movie.id}}</span> {{movie.name | capitalizeFirst}}
+      </a>
+      <div><button (click)="store(movie.id)">FAVORITOS</button><button (click)="mostrar()">X</button></div>
+      
+  </li>
+</ul></div>
+
+<div style="margin-left: 50%;">
+ <h2>FAVORITS:</h2>
+<div id="result"></div>
+</div>
+
+

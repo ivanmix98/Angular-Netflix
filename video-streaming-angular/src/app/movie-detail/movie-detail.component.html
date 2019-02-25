@@ -1,0 +1,29 @@
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  </head>
+
+<div  *ngIf="movie" @enterState style=" text-align: center;">
+
+  <h2>Detalls de {{movie.name | uppercase}}</h2>
+  <div><span>ID: </span>{{movie.id}}</div>
+  <div><span>Nom: </span>{{movie.name  | capitalizeFirst}}</div>
+  <div><span>Director: </span>{{movie.director}}</div>
+  <div><span>Any: </span>{{movie.year}}</div>
+  <div><span>Gènere: </span>{{movie.gender}}</div>
+  <div><span>Puntuació: </span>{{movie.score}}</div>
+  <div><img src="{{movie.img}}" [@photoState]='position'/></div>
+  <button (click)="changePosition('move')">Desplaçar</button>
+  <button (click)="changePosition('spin')">Rotar</button>
+  <button (click)="changePosition('enlarge')">Escalar</button>
+  <button (click)="changePosition(null)">Resetejar</button>
+ 
+  <div><br><span>Descripció: </span>{{movie.sinopsis}}</div>
+  
+  
+  <button class="btn btn-success"  id="ver"><a style="color:black;" routerLink="/reproductor/{{movie.id}}">Reproduir</a></button>
+    
+</div>
+
+<button (click)="goBack()">Enrere</button>
